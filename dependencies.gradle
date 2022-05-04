@@ -1,0 +1,7 @@
+ext{
+    //Android
+    compose_version = '1.1.1'
+
+    //Kotlin
+    coroutines_version ="1.6.1"
+}
