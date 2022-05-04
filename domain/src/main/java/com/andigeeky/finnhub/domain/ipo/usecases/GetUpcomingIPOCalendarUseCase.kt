@@ -5,7 +5,7 @@ import com.andigeeky.finnhub.domain.ipo.repository.IPOCalendarRepository
 import kotlinx.coroutines.flow.Flow
 
 class GetUpcomingIPOCalendarUseCase(private val ipoCalendarRepository: IPOCalendarRepository) {
-    operator fun invoke(): Flow<GetUpcomingIPOCalendarResult>{
+    suspend operator fun invoke(): Flow<GetUpcomingIPOCalendarResult>{
         return ipoCalendarRepository.getIPOCalendars()
     }
 }
