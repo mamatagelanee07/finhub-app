@@ -21,6 +21,9 @@ ext{
     kotlin_gradle_plugin_version="1.6.10"
     coroutines_version ="1.6.1"
 
+    //Dependency Injection
+    koin_version="3.1.6"
+
     //Testing
     junit ="4.13.2"
     android_junit_ext ="1.1.3"

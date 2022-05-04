@@ -1,23 +1,26 @@
 package com.andigeeky.finnhub.data.common
 
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 
-inline fun <ResultType, RequestType> networkBoundResource(
-    crossinline cache: () -> Flow<ResultType>,
-    crossinline network: suspend () -> RequestType,
-    crossinline saveToCache: suspend (RequestType) -> Unit,
-    crossinline shouldFetch: (ResultType) -> Boolean = { true },
+internal inline fun <Result, Request> networkBoundResource(
+    crossinline cache: () -> Flow<Result>,
+    crossinline network: suspend () -> Request,
+    crossinline saveToCache: suspend (Request) -> Unit,
+    crossinline shouldFetch: (Result) -> Boolean = { true },
 ) = flow {
     val data = cache().first()
     val flow = if (shouldFetch(data)) {
         try {
             saveToCache(network())
-            cache().map { it }
+            cache()
         } catch (throwable: Throwable) {
-            cache().map { it }
+            cache()
         }
     } else {
-        cache().map { it }
+        cache()
     }
     emitAll(flow)
 }

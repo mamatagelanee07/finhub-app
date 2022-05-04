@@ -7,7 +7,7 @@ import com.andigeeky.finnhub.domain.ipo.repository.IPOCalendarRepository
 import com.andigeeky.finnhub.domain.ipo.usecases.GetUpcomingIPOCalendarResult
 import kotlinx.coroutines.flow.Flow
 
-class IPOCalendarRepositoryImpl(
+internal class IPOCalendarDataRepository(
     private val cache: IPOCalendarCacheDataSource,
     private val network: IPOCalendarNetworkDataSource,
 ) : IPOCalendarRepository {
@@ -15,8 +15,7 @@ class IPOCalendarRepositoryImpl(
         return networkBoundResource(
             cache = { cache.getIPOCalendars() },
             network = { network.getIPOCalendars() },
-            saveToCache = { cache.getIPOCalendars() },
-            shouldFetch = { true }
+            saveToCache = { cache.getIPOCalendars() }
         )
     }
 }
