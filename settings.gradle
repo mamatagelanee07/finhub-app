@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "FinhubApp"
 include ':app'
+include ':domain'
