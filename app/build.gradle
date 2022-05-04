@@ -46,6 +46,7 @@ android {
 }
 
 dependencies {
+    implementation project(":di")
 
     implementation "androidx.core:core-ktx:$android_ktx"
     implementation "androidx.appcompat:appcompat:$android_appcompact"
