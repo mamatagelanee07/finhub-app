@@ -6,7 +6,12 @@ plugins {
 dependencies {
     implementation project(":domain")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version")
-    implementation("io.insert-koin:koin-core:$koin_version:$koin_version")
+    implementation("io.insert-koin:koin-core:$koin_version")
+
+    testImplementation "junit:junit:$junit"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    testImplementation "app.cash.turbine:turbine:$turbine_version"
 }
 
 java {
