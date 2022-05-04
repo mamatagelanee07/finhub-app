@@ -1,9 +1,9 @@
 package com.andigeeky.finnhub.domain.ipo.models
 
 data class IPOCalendar(
+    val name: String,
     val date: String?,
     val exchange: String?,
-    val name: String?,
     val numberOfShares: Long?,
     val price: String?,
     val status: IPOCalendarStatus,
@@ -16,5 +16,9 @@ enum class IPOCalendarStatus(val value: String?) {
     PRICED("priced"),
     WITHDRAWN("withdrawn"),
     FILED("filed"),
-    UNKNOWN(null),
+    UNKNOWN(null);
+
+    companion object{
+        fun getStatus(value: String?) = values().find { it.value == value } ?: UNKNOWN
+    }
 }

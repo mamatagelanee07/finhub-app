@@ -16,6 +16,7 @@ ext{
     android_material="1.5.0"
     android_lifecycle_ktx="2.4.1"
     android_activity_compose="1.4.0"
+    room_version="2.4.2"
 
     //Kotlin
     kotlin_gradle_plugin_version="1.6.10"

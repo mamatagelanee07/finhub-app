@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface IPOCalendarCacheDataSource {
     suspend fun getIPOCalendars(): Flow<List<IPOCalendar>>
-    suspend fun saveIPOCalendars(getUpcomingIPOCalendarResult: List<IPOCalendar>)
+    suspend fun saveIPOCalendars(calendar: List<IPOCalendar>)
 }
 
 interface IPOCalendarNetworkDataSource {
