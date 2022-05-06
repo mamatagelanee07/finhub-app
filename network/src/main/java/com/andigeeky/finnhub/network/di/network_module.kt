@@ -4,6 +4,8 @@ import com.andigeeky.finnhub.data.ipo.datasource.IPOCalendarNetworkDataSource
 import com.andigeeky.finnhub.network.common.NetworkConstants
 import com.andigeeky.finnhub.network.ipo.datasource.IPOCalendarRESTDataSource
 import com.andigeeky.finnhub.network.ipo.datasource.api.IPOCalendarService
+import com.chuckerteam.chucker.api.ChuckerInterceptor
+import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Converter
 import retrofit2.Retrofit
@@ -16,8 +18,14 @@ private val ipo_calendar_network_module = module {
 
 val network_module = module {
     single {
+        OkHttpClient.Builder()
+            .addInterceptor(ChuckerInterceptor.Builder(get()).build())
+            .build()
+    }
+    single {
         Retrofit.Builder()
             .baseUrl(NetworkConstants.FINN_HUB_BASE_URL)
+            .client(get())
             .addConverterFactory(get())
             .build()
     }
