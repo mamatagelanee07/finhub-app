@@ -18,6 +18,9 @@ ext{
     android_activity_compose="1.4.0"
     room_version="2.4.2"
 
+    //MVI
+    uniflow_version="1.1.0"
+
     //Kotlin
     kotlin_gradle_plugin_version="1.6.10"
     coroutines_version ="1.6.1"
@@ -27,6 +30,7 @@ ext{
 
     //Networking
     retrofit_version="2.9.0"
+    chcker_version="3.5.2"
 
     //Testing
     junit ="4.13.2"
