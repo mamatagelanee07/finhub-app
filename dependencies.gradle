@@ -39,4 +39,7 @@ ext{
     mockk_version="1.12.3"
     turbine_version="0.8.0"
     mockwebserver_version="4.9.3"
+
+    //Secrets
+    secrets_plugin_version="2.0.1"
 }
