@@ -9,7 +9,7 @@ private val ipo_ui_module = module {
 
 }
 private val ui_modules = module {
-    viewModel { UpcomingIPOCalendarViewModel() }
+    viewModel { UpcomingIPOCalendarViewModel(get()) }
 }
 
 val di_modules = ui_modules + common_modules
