@@ -6,7 +6,7 @@ import com.andigeeky.finnhub.domain.ipo.repository.IPOCalendarRepository
 import com.andigeeky.finnhub.domain.ipo.usecases.GetUpcomingIPOCalendarUseCase
 import org.koin.dsl.module
 
-val ipo_data_module= module {
+private val ipo_data_module= module {
     factory<IPOCalendarRepository> { IPOCalendarDataRepository(get(), get()) }
     factory<GetUpcomingIPOCalendarUseCase> { GetUpcomingIPOCalendarDataUseCaseImpl(get()) }
 }

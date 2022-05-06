@@ -7,7 +7,7 @@ import com.andigeeky.finnhub.cache.ipo.datasource.IPOCalendarDBDataSource
 import com.andigeeky.finnhub.data.ipo.datasource.IPOCalendarCacheDataSource
 import org.koin.dsl.module
 
-val ipo_database_module = module {
+private val ipo_database_module = module {
     factory { get<FinnHubDatabase>().ipoCalendarDAO() }
     factory<IPOCalendarCacheDataSource> { IPOCalendarDBDataSource(get()) }
 }

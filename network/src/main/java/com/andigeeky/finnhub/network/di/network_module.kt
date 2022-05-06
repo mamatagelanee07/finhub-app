@@ -9,7 +9,7 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-val ipo_calendar_network_module = module {
+private val ipo_calendar_network_module = module {
     factory { get<Retrofit>().create(IPOCalendarService::class.java) }
     factory<IPOCalendarNetworkDataSource> { IPOCalendarRESTDataSource(get()) }
 }
