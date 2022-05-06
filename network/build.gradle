@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+}
+
+android {
+    compileSdk app_compile_sdk
+
+    defaultConfig {
+        minSdk app_min_sdk
+        targetSdk app_target_sdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+        useIR = true
+    }
+}
+
+dependencies {
+    implementation project(":data")
+    implementation project(":domain")
+    implementation "androidx.core:core-ktx:$android_ktx"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation("io.insert-koin:koin-core:$koin_version")
+
+    debugImplementation "com.github.chuckerteam.chucker:library:$chcker_version"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:$chcker_version"
+
+    testImplementation "junit:junit:$junit"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mockwebserver_version"
+    testImplementation "com.squareup.retrofit2:retrofit-mock:$retrofit_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
+}
