@@ -11,9 +11,9 @@ internal data class IPOCalendarEntity(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "date") val date: String?,
     @ColumnInfo(name = "exchange") val exchange: String?,
-    @ColumnInfo(name = "number_of_shares") val numberOfShares: Long?,
+    @ColumnInfo(name = "number_of_shares") val numberOfShares: Double?,
     @ColumnInfo(name = "price") val price: String?,
     @ColumnInfo(name = "status") val status: String?,
     @ColumnInfo(name = "symbol") val symbol: String?,
-    @ColumnInfo(name = "total_shares_value") val totalSharesValue: Long?,
+    @ColumnInfo(name = "total_shares_value") val totalSharesValue: Double?,
 )

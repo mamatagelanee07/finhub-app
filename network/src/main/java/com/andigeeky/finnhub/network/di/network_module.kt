@@ -1,6 +1,7 @@
 package com.andigeeky.finnhub.network.di
 
 import com.andigeeky.finnhub.data.ipo.datasource.IPOCalendarNetworkDataSource
+import com.andigeeky.finnhub.network.common.HeaderInterceptor
 import com.andigeeky.finnhub.network.common.NetworkConstants
 import com.andigeeky.finnhub.network.ipo.datasource.IPOCalendarRESTDataSource
 import com.andigeeky.finnhub.network.ipo.datasource.api.IPOCalendarService
@@ -20,6 +21,7 @@ val network_module = module {
     single {
         OkHttpClient.Builder()
             .addInterceptor(ChuckerInterceptor.Builder(get()).build())
+            .addInterceptor(HeaderInterceptor)
             .build()
     }
     single {

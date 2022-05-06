@@ -5,6 +5,7 @@ import com.andigeeky.finnhub.network.common.model.NetworkErrorJson
 import com.google.gson.GsonBuilder
 import retrofit2.Response
 import java.io.IOException
+import java.lang.Exception
 
 suspend fun <Out, In> retrofitApiCall(
     call: suspend () -> Response<In>,
@@ -23,6 +24,8 @@ suspend fun <Out, In> retrofitApiCall(
             )
         }
     } catch (e: IOException) {
+        NetworkResponse.NoInternet()
+    } catch (e : Exception){
         NetworkResponse.NoInternet()
     }
 }

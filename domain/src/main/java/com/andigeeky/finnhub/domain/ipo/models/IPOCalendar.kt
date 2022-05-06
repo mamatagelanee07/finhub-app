@@ -4,11 +4,11 @@ data class IPOCalendar(
     val name: String,
     val date: String?,
     val exchange: String?,
-    val numberOfShares: Long?,
+    val numberOfShares: Double?,
     val price: String?,
     val status: IPOCalendarStatus,
     val symbol: String?,
-    val totalSharesValue: Long?,
+    val totalSharesValue: Double?,
 )
 
 enum class IPOCalendarStatus(val value: String?) {

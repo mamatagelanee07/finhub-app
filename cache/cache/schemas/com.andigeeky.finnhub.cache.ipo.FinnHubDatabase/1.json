@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b39db160570345b93bfa3cc1024fcd27",
+    "identityHash": "0a633d5f90fead4bbe0a9e51693ab394",
     "entities": [
       {
         "tableName": "ipo_calendar",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `date` TEXT, `exchange` TEXT, `number_of_shares` INTEGER, `price` TEXT, `status` TEXT, `symbol` TEXT, `total_shares_value` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `date` TEXT, `exchange` TEXT, `number_of_shares` REAL, `price` TEXT, `status` TEXT, `symbol` TEXT, `total_shares_value` REAL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -35,7 +35,7 @@
           {
             "fieldPath": "numberOfShares",
             "columnName": "number_of_shares",
-            "affinity": "INTEGER",
+            "affinity": "REAL",
             "notNull": false
           },
           {
@@ -59,7 +59,7 @@
           {
             "fieldPath": "totalSharesValue",
             "columnName": "total_shares_value",
-            "affinity": "INTEGER",
+            "affinity": "REAL",
             "notNull": false
           }
         ],
@@ -76,7 +76,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b39db160570345b93bfa3cc1024fcd27')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0a633d5f90fead4bbe0a9e51693ab394')"
     ]
   }
 }

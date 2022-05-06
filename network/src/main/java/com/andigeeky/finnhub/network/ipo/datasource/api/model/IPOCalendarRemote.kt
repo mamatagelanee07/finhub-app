@@ -15,7 +15,7 @@ data class IPOCalendarRemote(
     @SerializedName("exchange")
     val exchange: String?,
     @SerializedName("numberOfShares")
-    val numberOfShares: Long?,
+    val numberOfShares: Double?,
     @SerializedName("price")
     val price: String?,
     @SerializedName("status")
@@ -23,5 +23,5 @@ data class IPOCalendarRemote(
     @SerializedName("symbol")
     val symbol: String?,
     @SerializedName("totalSharesValue")
-    val totalSharesValue: Long?,
+    val totalSharesValue: Double?,
 )
