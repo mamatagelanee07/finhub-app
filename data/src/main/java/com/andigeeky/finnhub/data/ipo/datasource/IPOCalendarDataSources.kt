@@ -9,5 +9,12 @@ interface IPOCalendarCacheDataSource {
 }
 
 interface IPOCalendarNetworkDataSource {
-    suspend fun getIPOCalendars(): List<IPOCalendar>
+    suspend fun getIPOCalendars(): NetworkResponse<List<IPOCalendar>>
+}
+
+sealed interface NetworkResponse<T>{
+    data class Success<T>(val response : T) : NetworkResponse<T>
+    data class NoInternet<T>(val message : String? = null) : NetworkResponse<T>
+    data class ClientError<T>(val code : Int, val message : String? = null) : NetworkResponse<T>
+    data class ServerError<T>(val code : Int, val message : String? = null) : NetworkResponse<T>
 }

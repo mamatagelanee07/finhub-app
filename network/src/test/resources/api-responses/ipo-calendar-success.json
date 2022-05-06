@@ -1,0 +1,53 @@
+{
+   "ipoCalendar":[
+      {
+         "date":"2020-04-1",
+         "exchange":"exchange 1",
+         "name":"name 1",
+         "numberOfShares":1000,
+         "price":"£10",
+         "status":"expected",
+         "symbol":"symbol 1",
+         "totalSharesValue":10000
+      },
+      {
+         "date":"2020-04-2",
+         "exchange":"exchange 2",
+         "name":"name 2",
+         "numberOfShares":2000,
+         "price":"£20",
+         "status":"priced",
+         "symbol":"symbol 2",
+         "totalSharesValue":20000
+      },
+      {
+         "date":"2020-04-3",
+         "exchange":"exchange 3",
+         "name":"name 3",
+         "numberOfShares":3000,
+         "price":"£30",
+         "status":"withdrawn",
+         "symbol":"symbol 3",
+         "totalSharesValue":30000
+      },
+      {
+         "date":"2020-04-4",
+         "exchange":"exchange 4",
+         "name":"name 4",
+         "numberOfShares":4000,
+         "price":"£40",
+         "status":"filed",
+         "symbol":"symbol 4",
+         "totalSharesValue":40000
+      },
+      {
+         "date":"2020-04-5",
+         "exchange":"exchange 5",
+         "name":"name 5",
+         "numberOfShares":5000,
+         "price":"£50",
+         "symbol":"symbol 5",
+         "totalSharesValue":50000
+      }
+   ]
+}

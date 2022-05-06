@@ -5,6 +5,7 @@ package com.andigeeky.finnhub.data.ipo.usecase
 import app.cash.turbine.test
 import com.andigeeky.finnhub.data.ipo.datasource.IPOCalendarCacheDataSource
 import com.andigeeky.finnhub.data.ipo.datasource.IPOCalendarNetworkDataSource
+import com.andigeeky.finnhub.data.ipo.datasource.NetworkResponse
 import com.andigeeky.finnhub.data.ipo.repository.IPOCalendarDataRepository
 import com.andigeeky.finnhub.domain.ipo.common.Resource
 import com.andigeeky.finnhub.domain.ipo.models.IPOCalendar
@@ -39,7 +40,7 @@ class GetUpcomingIPOCalendarUseCaseTest {
     @Test
     fun `test repository emit loading with data from cache and network`() = runTest {
         coEvery { cache.getIPOCalendars() } returns flowOf(calendars)
-        coEvery { network.getIPOCalendars() } returns calendars
+        coEvery { network.getIPOCalendars() } returns NetworkResponse.Success(calendars)
         coEvery { cache.saveIPOCalendars(any()) } just runs
 
         usecase().test {

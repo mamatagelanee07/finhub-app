@@ -1,12 +1,14 @@
 package com.andigeeky.finnhub.data.common
 
+import com.andigeeky.finnhub.data.ipo.datasource.NetworkResponse
+import com.andigeeky.finnhub.domain.ipo.common.FinnError
 import com.andigeeky.finnhub.domain.ipo.common.Resource
 import kotlinx.coroutines.flow.*
 
-internal inline fun <Result, Request> networkBoundResource(
+internal inline fun <Result> networkBoundResource(
     crossinline cache: suspend () -> Flow<Result>,
-    crossinline network: suspend () -> Request,
-    crossinline saveToCache: suspend (Request) -> Unit,
+    crossinline network: suspend () -> NetworkResponse<Result>,
+    crossinline saveToCache: suspend (Result) -> Unit,
     crossinline shouldFetch: (Result) -> Boolean = { true },
 ) = flow {
     emit(Resource.Loading())
@@ -14,10 +16,23 @@ internal inline fun <Result, Request> networkBoundResource(
     val flow = if (shouldFetch(data)) {
         emit(Resource.Loading(data))
         try {
-            saveToCache(network())
-            cache().map { Resource.Success(it) }
+            when (val response = network()) {
+                is NetworkResponse.ClientError -> cache().map {
+                    Resource.Error(FinnError.NetworkError(response.code, response.message), it)
+                }
+                is NetworkResponse.ServerError -> cache().map {
+                    Resource.Error(FinnError.NetworkError(response.code, response.message), it)
+                }
+                is NetworkResponse.NoInternet -> cache().map {
+                    Resource.Error(FinnError.NoInternet, it)
+                }
+                is NetworkResponse.Success -> {
+                    saveToCache(response.response)
+                    cache().map { Resource.Success(it) }
+                }
+            }
         } catch (throwable: Throwable) {
-            cache().map { Resource.Error(throwable, it) }
+            cache().map { Resource.Error(FinnError.UnknownError(throwable), it) }
         }
     } else {
         cache().map { Resource.Success(it) }
