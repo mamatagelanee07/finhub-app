@@ -8,7 +8,9 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.andigeeky.finhubapp.ipo.ui.UpcomingIPOCalendarViewModel
 import com.andigeeky.finhubapp.ui.theme.FinhubAppTheme
+import org.koin.androidx.compose.get
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +19,7 @@ class MainActivity : ComponentActivity() {
             FinhubAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    Greeting()
                 }
             }
         }
@@ -25,14 +27,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Greeting(vm : UpcomingIPOCalendarViewModel = get()) {
+    Text(text = vm.getName())
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     FinhubAppTheme {
-        Greeting("Android")
+        Greeting()
     }
 }

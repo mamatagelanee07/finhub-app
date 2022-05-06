@@ -51,11 +51,16 @@ dependencies {
     implementation "androidx.core:core-ktx:$android_ktx"
     implementation "androidx.appcompat:appcompat:$android_appcompact"
     implementation "com.google.android.material:material:$android_material"
+
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$android_lifecycle_ktx"
     implementation "androidx.activity:activity-compose:$android_activity_compose"
+
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$android_lifecycle_ktx"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-androidx-compose:$koin_version"
+
 
     testImplementation "junit:junit:$junit"
 

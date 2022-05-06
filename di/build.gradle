@@ -36,6 +36,7 @@ dependencies {
     implementation project(":cache")
     implementation project(":network")
     implementation "androidx.core:core-ktx:$android_ktx"
+    implementation "io.insert-koin:koin-android:$koin_version"
 
     testImplementation "junit:junit:$junit"
 }
