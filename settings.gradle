@@ -9,3 +9,7 @@ dependencyResolutionManagement {
 rootProject.name = "FinhubApp"
 include ':app'
 include ':domain'
+include ':data'
+include ':network'
+include ':cache'
+include ':di'
