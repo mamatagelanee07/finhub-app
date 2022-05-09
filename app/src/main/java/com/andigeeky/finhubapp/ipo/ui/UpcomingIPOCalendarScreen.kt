@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.andigeeky.finhubapp.common.ui.LoadingView
 import com.andigeeky.finhubapp.ipo.ui.model.IPOUpcomingCalendarState
 import com.andigeeky.finnhub.domain.ipo.models.IPOCalendar
 import io.uniflow.android.livedata.states
@@ -24,7 +25,9 @@ fun UpcomingIPOCalendarScreen(vm: UpcomingIPOCalendarViewModel = get()) {
     vm.states.observeAsState().let {
         val state = it.value
         if (state is IPOUpcomingCalendarState) {
-            IPOCalendarList(calendars = state.ipoCalendars)
+            LoadingView(state.loading){
+                IPOCalendarList(calendars = state.ipoCalendars)
+            }
         }
     }
 }

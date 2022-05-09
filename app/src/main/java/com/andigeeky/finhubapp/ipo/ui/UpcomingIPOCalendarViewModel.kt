@@ -15,7 +15,7 @@ class UpcomingIPOCalendarViewModel(
         getIPOCalendars()
     }
 
-    fun getIPOCalendars() =  action {
+    private fun getIPOCalendars() =  action {
         useCase().collect{
             setState(
                 when(it){
@@ -25,7 +25,7 @@ class UpcomingIPOCalendarViewModel(
                         ipoCalendars = it.data.orEmpty()
                     )
                     is Resource.Loading -> IPOUpcomingCalendarState(
-                        loading = false,
+                        loading = true,
                         error = it.error?.getErrorMessage(),
                         ipoCalendars = it.data.orEmpty()
                     )
