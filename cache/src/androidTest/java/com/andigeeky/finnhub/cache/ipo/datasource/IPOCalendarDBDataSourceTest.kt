@@ -37,8 +37,8 @@ class IPOCalendarDBDataSourceTest {
             name = "ABC",
             date = "hsadg",
             exchange = "fsdf",
-            numberOfShares = 3456,
-            totalSharesValue = 57487,
+            numberOfShares = 3456.0,
+            totalSharesValue = 57487.0,
             status = IPOCalendarStatus.EXPECTED,
             symbol = "gdgd",
             price = "ffsjs"
