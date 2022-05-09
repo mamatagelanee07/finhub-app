@@ -45,10 +45,10 @@ class IPOCalendarRESTDataSourceTest : KoinTest {
                     name = "name $it",
                     date = "2020-04-$it",
                     exchange = "exchange $it",
-                    numberOfShares = it * 1000L,
+                    numberOfShares = it * 1000.0,
                     price = "£${it * 10}",
                     symbol = "symbol $it",
-                    totalSharesValue =  it * 10000L,
+                    totalSharesValue =  it * 10000.0,
                     status = IPOCalendarStatus.values()[it-1]
                 )
            }
