@@ -7,5 +7,5 @@ import io.uniflow.core.flow.data.UIState
 data class IPOUpcomingCalendarState(
     val loading: Boolean = true,
     @StringRes val error : Int? = null,
-    val ipoCalendars : List<IPOCalendar> = emptyList()
+    val ipoCalendars : List<IPOCalendar>? = null
 ) : UIState()

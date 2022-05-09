@@ -1,4 +1,4 @@
-package com.andigeeky.finhubapp.common.ui
+package com.andigeeky.finhubapp.common.ui.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,7 +28,7 @@ fun LoadingView(
 
 @Preview
 @Composable
-fun Test(){
+fun LoadingViewPreview(){
     LoadingView(isLoading = true) {
         Text(text = "Hello")
     }
