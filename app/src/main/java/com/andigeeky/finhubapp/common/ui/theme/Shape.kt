@@ -1,4 +1,4 @@
-package com.andigeeky.finhubapp.ui.theme
+package com.andigeeky.finhubapp.common.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
