@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import com.andigeeky.finhubapp.ipo.ui.UpcomingIPOCalendarScreen
-import com.andigeeky.finhubapp.ui.theme.FinhubAppTheme
+import com.andigeeky.finhubapp.common.ui.theme.FinhubAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.andigeeky.finhubapp.ui.theme
+package com.andigeeky.finhubapp.common.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -25,8 +26,23 @@ fun UpcomingIPOCalendarScreen(vm: UpcomingIPOCalendarViewModel = get()) {
     vm.states.observeAsState().let {
         val state = it.value
         if (state is IPOUpcomingCalendarState) {
-            LoadingView(state.loading){
-                IPOCalendarList(calendars = state.ipoCalendars)
+            Column {
+                TopAppBar(
+                    modifier = Modifier
+                ) {
+                    Text(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                horizontal = 8.dp
+                            ),
+                        text = "IPO Calendars",
+                        style = MaterialTheme.typography.h6
+                    )
+                }
+                LoadingView(state.loading) {
+                    IPOCalendarList(calendars = state.ipoCalendars)
+                }
             }
         }
     }
