@@ -12,7 +12,7 @@ import io.uniflow.core.threading.launchOnIO
 
 class UpcomingIPOCalendarViewModel(
     private val useCase: GetUpcomingIPOCalendarUseCase,
-) : AndroidDataFlow() {
+) : AndroidDataFlow(IPOUpcomingCalendarState()) {
 
     init {
         getIPOCalendars()

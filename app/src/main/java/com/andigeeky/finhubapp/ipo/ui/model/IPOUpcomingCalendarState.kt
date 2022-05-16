@@ -5,7 +5,7 @@ import com.andigeeky.finnhub.domain.ipo.models.IPOCalendar
 import io.uniflow.core.flow.data.UIState
 
 data class IPOUpcomingCalendarState(
-    val loading: Boolean = true,
+    val loading: Boolean = false,
     @StringRes val error : Int? = null,
     val ipoCalendars : List<IPOCalendar>? = null
 ) : UIState()
