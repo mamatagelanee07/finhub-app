@@ -1,10 +1,13 @@
 package com.andigeeky.finnhub.network.di
 
 import com.andigeeky.finnhub.data.ipo.datasource.IPOCalendarNetworkDataSource
+import com.andigeeky.finnhub.data.travelperk.datasource.PointOfInterestsNetworkDataSource
 import com.andigeeky.finnhub.network.common.HeaderInterceptor
 import com.andigeeky.finnhub.network.common.NetworkConstants
 import com.andigeeky.finnhub.network.ipo.datasource.IPOCalendarRESTDataSource
 import com.andigeeky.finnhub.network.ipo.datasource.api.IPOCalendarService
+import com.andigeeky.finnhub.network.travelperk.datasource.PointOfInterestsRESTDataSource
+import com.andigeeky.finnhub.network.travelperk.service.FourSquareService
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
@@ -17,6 +20,11 @@ private val ipo_calendar_network_module = module {
     factory<IPOCalendarNetworkDataSource> { IPOCalendarRESTDataSource(get()) }
 }
 
+private val travel_perk_network_module = module {
+    factory { get<Retrofit>().create(FourSquareService::class.java) }
+    factory<PointOfInterestsNetworkDataSource> { PointOfInterestsRESTDataSource(get()) }
+}
+
 val network_module = module {
     single {
         OkHttpClient.Builder()
@@ -26,10 +34,10 @@ val network_module = module {
     }
     single {
         Retrofit.Builder()
-            .baseUrl(NetworkConstants.FINN_HUB_BASE_URL)
+            .baseUrl(NetworkConstants.FOUR_SQUARE_BASE_URL)
             .client(get())
             .addConverterFactory(get())
             .build()
     }
     single<Converter.Factory> { GsonConverterFactory.create() }
-} + ipo_calendar_network_module
+} + ipo_calendar_network_module + travel_perk_network_module

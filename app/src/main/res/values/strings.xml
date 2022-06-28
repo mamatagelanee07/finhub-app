@@ -1,8 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">FinhubApp</string>
     <string name="ipo_calendar_title">IPO Calendars</string>
     <string name="error_no_internet">There is an issue with network connect. Please try again later.</string>
     <string name="error_server">There is an issue with our system. Please contact customer support.</string>
     <string name="error_unknown">Something went wrong.</string>
     <string name="retry">Try again</string>
+    <string name="googleMapKey" tools:ignore="Typos">AIzaSyACNiyibouenhGFOoBm4Ml01zYvDOfz1X0</string>
 </resources>
